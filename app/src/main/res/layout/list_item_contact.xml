@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="contactListItemViewModel"
+            type="in.ceeq.alec.databinding.ContactListItemViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/list_height_two_line"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:background="?android:selectableItemBackground"
+        android:onClick="@{contactListItemViewModel::onViewContactClick}">
+
+        <in.ceeq.alec.utils.BezelImageView
+            android:layout_width="@dimen/list_image_height_width"
+            android:layout_height="@dimen/list_image_height_width"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            app:glide="@{contactListItemViewModel.profilePicUrl}"
+            app:error="@{contactListItemViewModel.firstName}"
+            tools:src="@drawable/ic_photo_camera_black_24dp"/>
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/Base.TextAppearance.AppCompat.Subhead"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@{@string/name_format(contactListItemViewModel.firstName, contactListItemViewModel.lastName)}"
+            />
+
+    </LinearLayout>
+</layout>

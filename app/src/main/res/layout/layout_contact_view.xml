@@ -1,0 +1,176 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="contactViewViewModel"
+            type="in.ceeq.alec.databinding.ContactViewViewModel" />
+
+        <import type="android.view.View"/>
+
+        <import type="android.text.TextUtils"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:id="@+id/login_progress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/list_spacing_vertical"
+            android:layout_gravity="center_horizontal"
+            android:visibility="@{contactViewViewModel.progressViewVisible ? View.VISIBLE : View.GONE}"
+            tools:visibility="gone"
+            />
+
+        <ScrollView
+            android:id="@+id/login_form"
+            android:layout_width="match_parent"
+            android:visibility="@{contactViewViewModel.progressViewVisible ? View.GONE : View.VISIBLE}"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/email_login_form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/banner_pic_height_width"
+                        app:glide="@{contactViewViewModel.profilePicUrl}"
+                        android:background="@drawable/bg_contact_image"
+                        />
+
+                    <TextView
+                        android:id="@+id/name"
+                        style="@style/Base.TextAppearance.AppCompat.Display1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom"
+                        android:layout_margin="@dimen/activity_horizontal_margin"
+                        android:textColor="@android:color/white"
+                        android:text="@{@string/name_format(contactViewViewModel.firstName, contactViewViewModel.lastName)}"
+                        />
+
+                </FrameLayout>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/card_internal_padding">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="@{TextUtils.isEmpty(contactViewViewModel.mobile) ? View.GONE : View.VISIBLE}"
+                        android:padding="@dimen/card_internal_padding">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/list_height_two_line"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:paddingRight="@dimen/activity_horizontal_margin"
+                                app:srcCompat="@drawable/ic_call_blue_24dp" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/mobile"
+                                    style="@style/Base.TextAppearance.AppCompat.Subhead"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="@{contactViewViewModel.mobile}"
+                                    android:onClick="@{contactViewViewModel.onContactClick}"
+                                    android:textIsSelectable="true"
+                                    tools:text="+919839098390" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/list_spacing_vertical_dense"
+                                    style="@style/Base.TextAppearance.AppCompat.Small"
+                                    android:text="@string/prompt_mobile" />
+                            </LinearLayout>
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:paddingRight="@dimen/activity_horizontal_margin"
+                                android:onClick="@{contactViewViewModel.onMessageClick}"
+                                app:srcCompat="@drawable/ic_message_blue_24dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="@dimen/list_height_two_line"
+                            android:visibility="@{TextUtils.isEmpty(contactViewViewModel.email) ? View.GONE : View.VISIBLE}"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:paddingRight="@dimen/activity_horizontal_margin"
+                                app:srcCompat="@drawable/ic_mail_blue_24dp" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/email"
+                                    style="@style/Base.TextAppearance.AppCompat.Subhead"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textIsSelectable="true"
+                                    android:text="@{contactViewViewModel.email}"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    style="@style/Base.TextAppearance.AppCompat.Small"
+                                    android:layout_marginTop="@dimen/list_spacing_vertical_dense"
+                                    android:layout_gravity="center_vertical"
+                                    android:text="@string/prompt_email" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+</layout>
