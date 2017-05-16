@@ -1,4 +1,4 @@
-package in.ceeq.alec.utils;
+package in.ceeq.alec.utils.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;

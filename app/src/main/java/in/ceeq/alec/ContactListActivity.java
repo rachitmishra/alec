@@ -56,6 +56,12 @@ public class ContactListActivity extends AppCompatActivity
         mContactListViewModel.getAllContacts();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+
+    }
 
     @Override
     public void onBackPressed() {

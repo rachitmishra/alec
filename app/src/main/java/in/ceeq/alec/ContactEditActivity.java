@@ -127,7 +127,7 @@ public class ContactEditActivity extends AppCompatActivity
             try {
                 mContactEditViewModel.handlePhotoSelection(data);
             } catch (MalformedURLException e) {
-                LogUtils.logException(e);
+                LogUtils.LOG(e);
             }
         }
     }

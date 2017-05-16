@@ -5,28 +5,24 @@ import android.support.graphics.drawable.VectorDrawableCompat;
 import android.text.TextUtils;
 import android.widget.ImageView;
 
-import com.amulyakhare.textdrawable.TextDrawable;
-import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.bumptech.glide.Glide;
 
 import in.ceeq.alec.R;
+import in.ceeq.alec.utils.ui.LetterTileDrawable;
 
 public class ImageViewBindingAttribute {
 
     @BindingAdapter({"glide", "error"})
     public static void bindGlide(final ImageView view, final String url, String error) {
 
-        ColorGenerator generator = ColorGenerator.MATERIAL; // or use DEFAULT
-        int color1 = generator.getRandomColor();
-
-        TextDrawable drawable1 = TextDrawable.builder()
-                .buildRound(error.substring(0, 1).toUpperCase(), color1);
-
+        LetterTileDrawable letterTileDrawable = new LetterTileDrawable(view.getContext())
+                .setIsCircular(true)
+                .setLetter(error.charAt(0));
         if (!TextUtils.isEmpty(url)) {
             view.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            Glide.with(view.getContext()).load(url).error(drawable1).into(view);
+            Glide.with(view.getContext()).load(url).error(letterTileDrawable).into(view);
         } else {
-            view.setImageDrawable(drawable1);
+            view.setImageDrawable(letterTileDrawable);
         }
     }
 

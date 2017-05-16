@@ -58,7 +58,7 @@ public class ImageUtils {
             matrix.postRotate(angle);
             return rotateImage(bitmap, angle);
         } catch (IOException e) {
-            LogUtils.logException(e);
+            LogUtils.LOG(e);
         }
         return bitmap;
     }
@@ -84,7 +84,7 @@ public class ImageUtils {
             }
             inputStream.close();
         } catch (Exception e) {
-            LogUtils.logException(e);
+            LogUtils.LOG(e);
             toFilename = "";
         }
         return toFilename;
@@ -120,10 +120,10 @@ public class ImageUtils {
             return BitmapFactory.decodeByteArray(byteArr, 0, count, options);
 
         } catch (IOException e) {
-            LogUtils.logException(e);
+            LogUtils.LOG(e);
             return null;
         } catch (RuntimeException e) {
-            LogUtils.logException(e);
+            LogUtils.LOG(e);
             return null;
         } catch (OutOfMemoryError e) {
             return null;

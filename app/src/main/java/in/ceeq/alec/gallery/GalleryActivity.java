@@ -245,7 +245,7 @@ public class GalleryActivity extends AppCompatActivity {
                 uploadFileUri = Uri.fromFile(temporaryFile);
             }
         } catch (NullPointerException e) {
-            LogUtils.logException(e);
+            LogUtils.LOG(e);
             return null;
         }
 
@@ -262,7 +262,7 @@ public class GalleryActivity extends AppCompatActivity {
                     ".jpg",
                     storageDir);
         } catch (IOException e) {
-            LogUtils.logException(e);
+            LogUtils.LOG(e);
         }
 
         return temporaryFile;
