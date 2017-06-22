@@ -36,11 +36,11 @@ public class ContactEditViewModel extends BaseContactViewModel {
     }
 
     public void onPhotoSelectClick(View view) {
-        GalleryActivity.startForSelect((AppCompatActivity) view.getContext());
+        GalleryActivity.Companion.startForSelect((AppCompatActivity) view.getContext());
     }
 
     public void handlePhotoSelection(Intent data) throws MalformedURLException {
-        ArrayList<String> selectedImagePaths = GalleryActivity.getSelectedImagePath(data);
+        ArrayList<String> selectedImagePaths = GalleryActivity.Companion.getSelectedImagePath(data);
         if (!selectedImagePaths.isEmpty() && !TextUtils.isEmpty(selectedImagePaths.get(0))) {
             String uri = Uri.fromFile(new File(selectedImagePaths.get(0))).toString();
             String url = new URL(uri).toString();

@@ -46,10 +46,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <ImageView
+                    <com.facebook.drawee.view.SimpleDraweeView
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/banner_pic_height_width"
-                        app:glide="@{contactViewViewModel.profilePicUrl}"
+                        app:fresco="@{contactViewViewModel.profilePicUrl}"
                         android:background="@drawable/bg_contact_image"
                         />
 

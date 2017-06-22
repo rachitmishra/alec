@@ -21,7 +21,7 @@ import java.util.List;
 
 import in.ceeq.alec.BuildConfig;
 import in.ceeq.alec.network.ContactService;
-import in.ceeq.alec.provider.ContactContract;
+import in.ceeq.alec.provider.contentprovider.ContactContract;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,7 +29,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static in.ceeq.alec.provider.ContactContract.Contacts.SERVER_ID;
+import static in.ceeq.alec.provider.contentprovider.ContactContract.Contacts.SERVER_ID;
 
 public class BaseContactViewModel extends Contact {
 

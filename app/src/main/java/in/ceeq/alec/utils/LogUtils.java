@@ -2,7 +2,6 @@ package in.ceeq.alec.utils;
 
 import android.util.Log;
 
-import com.crashlytics.android.Crashlytics;
 import com.google.firebase.crash.FirebaseCrash;
 
 import in.ceeq.alec.BuildConfig;
@@ -57,7 +56,6 @@ public final class LogUtils {
         if (BuildConfig.DEBUG) {
             e.printStackTrace();
         } else {
-            Crashlytics.logException(e);
             FirebaseCrash.report(e);
         }
     }
@@ -74,7 +72,6 @@ public final class LogUtils {
         if (BuildConfig.DEBUG) {
             e.printStackTrace();
         } else {
-            Crashlytics.logException(e);
         }
     }
 }

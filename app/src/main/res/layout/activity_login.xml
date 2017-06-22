@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="contactViewViewModel"
-            type="in.ceeq.alec.databinding.ContactViewViewModel" />
+            name="loginViewModel"
+            type="in.ceeq.alec.databinding.LoginViewModel" />
     </data>
 
     <FrameLayout
@@ -14,8 +14,8 @@
         android:layout_height="match_parent">
 
         <include
-            layout="@layout/layout_contact_view"
-            app:contactViewViewModel="@{contactViewViewModel}" />
+            layout="@layout/layout_login"
+            app:loginViewModel="@{loginViewModel}" />
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"

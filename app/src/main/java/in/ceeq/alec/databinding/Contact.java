@@ -12,13 +12,13 @@ import android.text.TextUtils;
 import com.android.databinding.library.baseAdapters.BR;
 import com.google.gson.annotations.SerializedName;
 
-import static in.ceeq.alec.provider.ContactContract.Contacts.EMAIL;
-import static in.ceeq.alec.provider.ContactContract.Contacts.FAVORITE;
-import static in.ceeq.alec.provider.ContactContract.Contacts.FIRST_NAME;
-import static in.ceeq.alec.provider.ContactContract.Contacts.LAST_NAME;
-import static in.ceeq.alec.provider.ContactContract.Contacts.MOBILE;
-import static in.ceeq.alec.provider.ContactContract.Contacts.PROFILE_PIC_URL;
-import static in.ceeq.alec.provider.ContactContract.Contacts.SERVER_ID;
+import static in.ceeq.alec.provider.contentprovider.ContactContract.Contacts.EMAIL;
+import static in.ceeq.alec.provider.contentprovider.ContactContract.Contacts.FAVORITE;
+import static in.ceeq.alec.provider.contentprovider.ContactContract.Contacts.FIRST_NAME;
+import static in.ceeq.alec.provider.contentprovider.ContactContract.Contacts.LAST_NAME;
+import static in.ceeq.alec.provider.contentprovider.ContactContract.Contacts.MOBILE;
+import static in.ceeq.alec.provider.contentprovider.ContactContract.Contacts.PROFILE_PIC_URL;
+import static in.ceeq.alec.provider.contentprovider.ContactContract.Contacts.SERVER_ID;
 
 public class Contact extends BaseObservable implements Parcelable {
 

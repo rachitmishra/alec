@@ -11,8 +11,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import static com.bumptech.glide.load.resource.bitmap.TransformationUtils.rotateImage;
-
 public class ImageUtils {
 
     private static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
@@ -62,6 +60,45 @@ public class ImageUtils {
         }
         return bitmap;
     }
+
+
+    private static Bitmap rotateImage(Bitmap source, float angle) {
+
+        Bitmap bitmap = null;
+        Matrix matrix = new Matrix();
+        matrix.postRotate(angle);
+        try {
+            bitmap = Bitmap.createBitmap(source, 0, 0, source.getWidth(), source.getHeight(), matrix, true);
+            source.recycle();
+        } catch (OutOfMemoryError e) {
+            try {
+                Bitmap tempBitmap = source.copy(Bitmap.Config.RGB_565, false);
+                bitmap = Bitmap.createBitmap(tempBitmap, 0, 0, source.getWidth(), source.getHeight(), matrix, true);
+                source.recycle();
+                tempBitmap.recycle();
+            } catch (Exception e2) {
+            }
+        }
+        return bitmap;
+    }
+
+    public static int getImageOrientation(final String file) throws IOException {
+        final ExifInterface exif = new ExifInterface(file);
+        final int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, 1);
+        switch (orientation) {
+            case ExifInterface.ORIENTATION_NORMAL:
+                return 0;
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                return 90;
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                return 180;
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                return 270;
+            default:
+                return 0;
+        }
+    }
+
 
     public static String decodeSampledBitmap(String fromFilename, String toFilename, int reqWidth, int reqHeight,
                                              boolean fixOrientation) {

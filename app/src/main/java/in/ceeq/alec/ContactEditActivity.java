@@ -56,7 +56,7 @@ public class ContactEditActivity extends AppCompatActivity
         }
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Add Contact");
+        getSupportActionBar().setTitle("Add User");
 
         ActivityContactEditBinding contactEditBinding =
                 DataBindingUtil.setContentView(this, R.layout.activity_contact_edit);
@@ -68,7 +68,7 @@ public class ContactEditActivity extends AppCompatActivity
             int contactId = getIntent().getIntExtra(EXTRA_CONTACT_ID, 0);
             mContactEditViewModel.setId(contactId);
             getLoaderManager().initLoader(0, null, this);
-            getSupportActionBar().setTitle("Edit Contact");
+            getSupportActionBar().setTitle("Edit User");
         } else {
             SoftInputUtils.showKeyboard(this);
         }

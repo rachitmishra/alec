@@ -35,7 +35,7 @@ public class LetterTileDrawable extends Drawable {
     private static final Rect sRect = new Rect();
     private static final char[] sFirstChar = new char[1];
     /**
-     * Contact type constants
+     * User type constants
      */
     public static final int TYPE_PERSON = 1;
     public static final int TYPE_DEFAULT = TYPE_PERSON;

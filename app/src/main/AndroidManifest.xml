@@ -12,6 +12,7 @@
         android:maxSdkVersion="18"/>
 
     <application
+        android:name=".AlecApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -37,14 +38,11 @@
             android:name=".ContactListActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
+
         </activity>
 
         <provider
-            android:name=".provider.ContactProvider"
+            android:name=".provider.contentprovider.ContactProvider"
             android:authorities="in.ceeq.alec.provider"
             android:enabled="true"
             android:exported="false"/>
@@ -76,7 +74,12 @@
         <activity
             android:name=".LoginActivity"
             android:label=""
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
 
     </application>
 </manifest>

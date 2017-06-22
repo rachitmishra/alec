@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Contacts</string>
+    <string name="app_name">Lyte</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -24,4 +24,7 @@
     <string name="no_camera">Camera not available</string>
     <string name="name_format">%1$s %2$s</string>
     <string name="share_via">Share via</string>
+    <string name="login_with_email">Login with Email</string>
+    <string name="login_with_mobile">Login with Mobile</string>
+    <string name="login_with_google">Login with Google</string>
 </resources>

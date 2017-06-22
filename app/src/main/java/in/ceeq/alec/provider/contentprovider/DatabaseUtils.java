@@ -1,4 +1,4 @@
-package in.ceeq.alec.provider;
+package in.ceeq.alec.provider.contentprovider;
 
 import android.content.ContentResolver;
 import android.net.Uri;
