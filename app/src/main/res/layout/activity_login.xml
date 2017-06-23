@@ -3,10 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
         <variable
             name="loginViewModel"
-            type="in.ceeq.alec.databinding.LoginViewModel" />
+            type="in.ceeq.lyte.databinding.LoginViewModel" />
     </data>
 
     <FrameLayout

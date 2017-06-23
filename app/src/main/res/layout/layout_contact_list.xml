@@ -7,13 +7,13 @@
 
         <variable
             name="contactListViewModel"
-            type="in.ceeq.alec.databinding.ContactListViewModel" />
+            type="in.ceeq.lyte.databinding.ContactListViewModel" />
     </data>
 
     <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context="in.ceeq.alec.ContactListActivity">
+        tools:context="in.ceeq.lyte.ContactListActivity">
 
         <android.support.design.widget.AppBarLayout
             android:layout_width="match_parent"

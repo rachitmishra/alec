@@ -7,7 +7,7 @@
 
         <variable
             name="contactListItemViewModel"
-            type="in.ceeq.alec.databinding.ContactListItemViewModel"/>
+            type="in.ceeq.lyte.databinding.ContactListItemViewModel"/>
     </data>
 
     <LinearLayout

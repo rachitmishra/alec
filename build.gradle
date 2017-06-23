@@ -4,16 +4,25 @@ buildscript {
 
     ext.kotlin_plugin_version = '1.1.2-5'
     ext.android_plugin_version = '3.0.0-alpha4'
+    ext.firebase_library_version = '11.0.1'
+    ext.support_library_version = '26.0.0-beta1'
+    ext.android_arch_version = '1.0.0-alpha3'
+    ext.retrofit_version = '2.3.0'
+    ext.okhttp_version = '3.8.0'
 
     repositories {
         jcenter()
         mavenCentral()
+        // New Google maven repository for support library
         maven { url 'https://maven.google.com' }
     }
 
     dependencies {
+        // Gradle plugin for Android tools support
         classpath "com.android.tools.build:gradle:$android_plugin_version"
-        classpath 'com.google.gms:google-services:3.0.0'
+        // Google services for FireBase, Google Play Services
+        classpath 'com.google.gms:google-services:3.1.0'
+        // Gradle plugin for Kotlin support
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_plugin_version"
     }
 }

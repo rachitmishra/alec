@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="contactViewViewModel"
-            type="in.ceeq.alec.databinding.ContactViewViewModel" />
+            name="contactViewModel"
+            type="in.ceeq.lyte.databinding.ContactViewModel" />
 
         <import type="android.view.View"/>
 
@@ -26,14 +26,14 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/list_spacing_vertical"
             android:layout_gravity="center_horizontal"
-            android:visibility="@{contactViewViewModel.progressViewVisible ? View.VISIBLE : View.GONE}"
+            android:visibility="@{contactViewModel.progressViewVisible ? View.VISIBLE : View.GONE}"
             tools:visibility="gone"
             />
 
         <ScrollView
             android:id="@+id/login_form"
             android:layout_width="match_parent"
-            android:visibility="@{contactViewViewModel.progressViewVisible ? View.GONE : View.VISIBLE}"
+            android:visibility="@{contactViewModel.progressViewVisible ? View.GONE : View.VISIBLE}"
             android:layout_height="match_parent">
 
             <LinearLayout
@@ -49,7 +49,7 @@
                     <com.facebook.drawee.view.SimpleDraweeView
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/banner_pic_height_width"
-                        app:fresco="@{contactViewViewModel.profilePicUrl}"
+                        app:fresco="@{contactViewModel.profilePicUrl}"
                         android:background="@drawable/bg_contact_image"
                         />
 
@@ -61,7 +61,7 @@
                         android:layout_gravity="bottom"
                         android:layout_margin="@dimen/activity_horizontal_margin"
                         android:textColor="@android:color/white"
-                        android:text="@{@string/name_format(contactViewViewModel.firstName, contactViewViewModel.lastName)}"
+                        android:text="@{@string/name_format(contactViewModel.firstName, contactViewModel.lastName)}"
                         />
 
                 </FrameLayout>
@@ -76,7 +76,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:visibility="@{TextUtils.isEmpty(contactViewViewModel.mobile) ? View.GONE : View.VISIBLE}"
+                        android:visibility="@{TextUtils.isEmpty(contactViewModel.mobile) ? View.GONE : View.VISIBLE}"
                         android:padding="@dimen/card_internal_padding">
 
 
@@ -105,8 +105,8 @@
                                     style="@style/Base.TextAppearance.AppCompat.Subhead"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@{contactViewViewModel.mobile}"
-                                    android:onClick="@{contactViewViewModel.onContactClick}"
+                                    android:text="@{contactViewModel.mobile}"
+                                    android:onClick="@{contactViewModel::onContactClick}"
                                     android:textIsSelectable="true"
                                     tools:text="+919839098390" />
 
@@ -123,7 +123,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
                                 android:paddingRight="@dimen/activity_horizontal_margin"
-                                android:onClick="@{contactViewViewModel.onMessageClick}"
+                                android:onClick="@{contactViewModel::onMessageClick}"
                                 app:srcCompat="@drawable/ic_message_blue_24dp" />
 
                         </LinearLayout>
@@ -132,7 +132,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:minHeight="@dimen/list_height_two_line"
-                            android:visibility="@{TextUtils.isEmpty(contactViewViewModel.email) ? View.GONE : View.VISIBLE}"
+                            android:visibility="@{TextUtils.isEmpty(contactViewModel.email) ? View.GONE : View.VISIBLE}"
                             android:orientation="horizontal">
 
                             <ImageView
@@ -155,7 +155,7 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:textIsSelectable="true"
-                                    android:text="@{contactViewViewModel.email}"
+                                    android:text="@{contactViewModel.email}"
                                     />
 
                                 <TextView

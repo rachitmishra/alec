@@ -7,7 +7,7 @@
 
         <variable
             name="loginViewModel"
-            type="in.ceeq.alec.databinding.LoginViewModel"/>
+            type="in.ceeq.lyte.databinding.LoginViewModel"/>
     </data>
 
     <LinearLayout
@@ -35,7 +35,7 @@
             android:gravity="center"
             android:orientation="vertical">
 
-            <in.ceeq.alec.utils.ui.TextViewPlus
+            <in.ceeq.lyte.utils.ui.TextViewPlus
                 style="@style/TextAppearance.AppCompat.Display1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -6,7 +6,7 @@
 
         <variable
             name="contactEditViewModel"
-            type="in.ceeq.alec.databinding.ContactEditViewModel"/>
+            type="in.ceeq.lyte.databinding.ContactEditViewModel"/>
 
         <import type="android.view.View"/>
 
@@ -56,7 +56,7 @@
                         android:layout_width="@dimen/list_image_height_width"
                         android:layout_height="@dimen/list_image_height_width"
                         android:layout_gravity="bottom|end"
-                        android:onClick="@{contactEditViewModel.onPhotoSelectClick}"
+                        android:onClick="@{contactEditViewModel::onPhotoSelectClick}"
                         android:padding="@dimen/activity_horizontal_margin"
                         android:scaleType="center"
                         app:srcCompat="@drawable/ic_photo_camera_white_24dp"

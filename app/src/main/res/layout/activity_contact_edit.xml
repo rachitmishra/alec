@@ -6,7 +6,7 @@
 
         <variable
             name="contactEditViewModel"
-            type="in.ceeq.alec.databinding.ContactEditViewModel" />
+            type="in.ceeq.lyte.databinding.ContactEditViewModel" />
     </data>
 
     <RelativeLayout
