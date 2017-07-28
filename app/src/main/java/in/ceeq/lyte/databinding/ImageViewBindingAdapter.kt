@@ -6,7 +6,7 @@ import android.net.Uri
 import android.widget.ImageView
 import com.facebook.drawee.view.SimpleDraweeView
 
-object ImageViewBindingAttribute {
+object ImageViewBindingAdapter {
 
     @BindingAdapter("fresco", "error", requireAll = false)
     @JvmStatic fun bindPhotoManager(view: SimpleDraweeView, url: String?, error: String?) {

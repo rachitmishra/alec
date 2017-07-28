@@ -1,7 +1,7 @@
 package `in`.ceeq.lyte.provider.room
 
+import `in`.ceeq.lyte.provider.room.dao.UserDao
 import `in`.ceeq.lyte.provider.room.entity.User
-import `in`.ceeq.lyte.provider.room.entity.dao.UserDao
 import android.arch.persistence.room.Database
 import android.arch.persistence.room.RoomDatabase
 

@@ -1,33 +1,30 @@
 package `in`.ceeq.lyte.databinding
 
 
-import android.content.ContentValues.TAG
+import android.arch.lifecycle.ViewModel
 import android.content.Context
 import android.content.Intent
-import android.util.Log
+import android.databinding.ObservableField
 import android.view.View
-import com.google.android.gms.auth.api.Auth
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.GoogleAuthProvider
+typealias OnLogin = (LoginViewModel.LoginWith) -> Unit
 
-class LoginViewModel(var context: Context) {
+class LoginViewModel(var context: Context, val onlogin: OnLogin) : ViewModel() {
 
-    val mAuth: FirebaseAuth
-
-    init {
-        mAuth = FirebaseAuth.getInstance()
+    enum class LoginWith {
+        MOBILE,
+        EMAIL,
+        ANON,
+        GOOGLE
     }
 
+    val mAuth: FirebaseAuth by lazy(LazyThreadSafetyMode.NONE) { FirebaseAuth.getInstance() }
 
-    fun handleStart() {
-        val currentUser = mAuth.currentUser
-        if (null != currentUser) {
-            handleLoginSuccess(currentUser)
-        }
-    }
+    val showMobileLayout : ObservableField<Boolean> by lazy(LazyThreadSafetyMode.NONE) { ObservableField(false)}
+    val showButtonLayout : ObservableField<Boolean> by lazy(LazyThreadSafetyMode.NONE) { ObservableField(true)}
 
     fun getGoogleSignInOptions() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -37,14 +34,6 @@ class LoginViewModel(var context: Context) {
     }
 
     fun handleResultForGoogleLogin(intent: Intent) {
-        val result = Auth.GoogleSignInApi.getSignInResultFromIntent(intent)
-        if (result.isSuccess) {
-            // Google Sign In was successful, authenticate with Firebase
-            val account = result.signInAccount
-            firebaseAuthWithGoogle(account)
-        } else {
-
-        }
     }
 
     private fun handleLoginFailure() {
@@ -56,22 +45,6 @@ class LoginViewModel(var context: Context) {
     }
 
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount?) {
-        acct?.let {
-            Log.d(TAG, "firebaseAuthWithGoogle:" + it.id)
-            val credential = GoogleAuthProvider.getCredential(it.idToken, null)
-            mAuth.signInWithCredential(credential)
-                    .addOnCompleteListener({
-                        if (it.isSuccessful) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInWithCredential:success")
-                            val user = mAuth.currentUser
-                            handleLoginSuccess(user)
-                        } else {
-                            handleLoginFailure()
-                        }
-                    })
-        }
-
     }
 
     fun onLogin(view: View) {
@@ -87,7 +60,8 @@ class LoginViewModel(var context: Context) {
     }
 
     fun onMobileLogin(view: View) {
-
+        showButtonLayout.set(false)
+        showMobileLayout.set(true)
     }
 }
 

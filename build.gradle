@@ -2,13 +2,22 @@
 
 buildscript {
 
-    ext.kotlin_plugin_version = '1.1.2-5'
-    ext.android_plugin_version = '3.0.0-alpha4'
-    ext.firebase_library_version = '11.0.1'
-    ext.support_library_version = '26.0.0-beta1'
-    ext.android_arch_version = '1.0.0-alpha3'
-    ext.retrofit_version = '2.3.0'
-    ext.okhttp_version = '3.8.0'
+    ext {
+        kotlin_plugin_version = '1.1.3-2'
+        android_plugin_version = '3.0.0-alpha4'
+        google_services_version = '3.1.0'
+        firebase_library_version = '11.0.1'
+        support_library_version = '26.0.0-beta1'
+        android_arch_version = '1.0.0-alpha3'
+        retrofit_version = '2.3.0'
+        okhttp_version = '3.8.0'
+        junit_version = '4.12'
+        mockito_version = ''
+        fresco_version = '1.3.0'
+        espresso_version = '2.2.2'
+        stetho_version = '1.5.0'
+        constraint_layout_version = '1.0.2'
+    }
 
     repositories {
         jcenter()
@@ -19,9 +28,9 @@ buildscript {
 
     dependencies {
         // Gradle plugin for Android tools support
-        classpath "com.android.tools.build:gradle:$android_plugin_version"
+        classpath 'com.android.tools.build:gradle:3.0.0-alpha6'
         // Google services for FireBase, Google Play Services
-        classpath 'com.google.gms:google-services:3.1.0'
+        classpath "com.google.gms:google-services:$google_services_version"
         // Gradle plugin for Kotlin support
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_plugin_version"
     }

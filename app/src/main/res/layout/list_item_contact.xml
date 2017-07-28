@@ -15,7 +15,6 @@
         android:layout_height="wrap_content"
         android:background="?android:selectableItemBackground"
         android:minHeight="@dimen/list_height_two_line"
-        android:onClick="@{contactListItemViewModel::onViewContactClick}"
         android:orientation="horizontal"
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin">

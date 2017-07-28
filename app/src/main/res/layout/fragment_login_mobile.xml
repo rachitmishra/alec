@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="loginViewModel"
+            type="in.ceeq.lyte.databinding.LoginViewModel"/>
+
+        <import type="android.view.View"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/login_mobile_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="@{loginViewModel.showMobileLayout ? View.VISIBLE : View.GONE}">
+
+        <TextView
+            android:id="@+id/title_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Enter your mobile number"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            app:layout_constraintBottom_toTopOf="@+id/mobile_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.2"
+            app:layout_constraintVertical_chainStyle="packed"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/mobile_view"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/buttonPlus3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_view">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Mobile"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <in.ceeq.lyte.utils.ui.ButtonPlus
+            android:id="@+id/buttonPlus3"
+            style="@style/Base.Widget.AppCompat.Button.Colored"
+            android:layout_width="180dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="32dp"
+            android:onClick="@{loginViewModel::onEmailLogin}"
+            android:text="@string/login"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline_l"
+            app:layout_constraintTop_toBottomOf="@+id/mobile_view"/>
+    </android.support.constraint.ConstraintLayout>
+</layout>

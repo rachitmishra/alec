@@ -47,7 +47,7 @@ public class ContactViewActivity extends AppCompatActivity
 
         ActivityContactViewBinding contactViewBinding =
                 DataBindingUtil.setContentView(this, R.layout.activity_contact_view);
-        contactViewBinding.setContactViewViewModel(mContactViewModel);
+        contactViewBinding.setContactViewModel(mContactViewModel);
 
         setSupportActionBar(contactViewBinding.toolbar);
 
