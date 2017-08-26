@@ -14,22 +14,22 @@ import java.net.URL
 
 class ContactEditViewModel(context: Context) : BaseContactViewModel(context) {
 
-    private val mOnContactAddEditListener: BaseContactViewModel.OnContactAddEditListener
-
-    init {
-        mOnContactAddEditListener = context as BaseContactViewModel.OnContactAddEditListener
-    }
+    private val mOnContactAddEditListener
+            = context as BaseContactViewModel.OnContactAddEditListener
 
     fun onSaveClick() {
-        val names = name.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
-        firstName = names[0]
-        lastName = names[1]
+        val names = name?.let {
+            val names = it.split(" ".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray()
+            firstName = names[0]
+            lastName = names[1]
+        }
         if (id > 0) {
             putContact(mOnContactAddEditListener)
         } else {
             postContact(mOnContactAddEditListener)
         }
     }
+
 
     fun onPhotoSelectClick(view: View) {
         GalleryActivity.startForSelect(view.context as AppCompatActivity)
@@ -42,7 +42,6 @@ class ContactEditViewModel(context: Context) : BaseContactViewModel(context) {
             val uri = Uri.fromFile(File(selectedImagePaths[0])).toString()
             val url = URL(uri).toString()
             profilePicUrl = url
-            update(this)
         }
     }
 }

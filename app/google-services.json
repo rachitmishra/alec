@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "795960807057",
+    "firebase_url": "https://lyte-cfae4.firebaseio.com",
+    "project_id": "lyte-cfae4",
+    "storage_bucket": "lyte-cfae4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795960807057:android:66f88f70d0d4941f",
+        "android_client_info": {
+          "package_name": "in.ceeq.lyte"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "795960807057-eg7ssm9ca9vmsecc8ornv5nhfp3nupko.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "in.ceeq.lyte",
+            "certificate_hash": "4f9646eac5b63c50ce0683ad187f415c5f31c720"
+          }
+        },
+        {
+          "client_id": "795960807057-6r1c49omj9afbdrkkfq7idajja0b4fos.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgGyYYlYCbg6h2TKKFiO84ugPG60roj7Q"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "795960807057-6r1c49omj9afbdrkkfq7idajja0b4fos.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

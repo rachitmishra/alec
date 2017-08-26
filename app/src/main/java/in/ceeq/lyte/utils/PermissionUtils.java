@@ -69,7 +69,7 @@ public class PermissionUtils {
                 openSettingsScreen(activity);
             }
         });
-        snackbar.setActionTextColor(ContextCompat.getColor(activity, R.color.colorAccent)).show();
+        snackbar.setActionTextColor(ContextCompat.getColor(activity, R.color.primaryLightColor)).show();
         return snackbar;
     }
 }

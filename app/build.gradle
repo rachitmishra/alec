@@ -7,7 +7,7 @@ apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.0"
+    buildToolsVersion "26.0.1"
     defaultConfig {
         applicationId "in.ceeq.lyte"
         minSdkVersion 15
@@ -16,6 +16,12 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
     }
     signingConfigs {
         release {
@@ -66,7 +72,9 @@ dependencies {
     implementation "com.google.firebase:firebase-messaging:${firebase_library_version}"
     implementation "com.google.firebase:firebase-config:${firebase_library_version}"
     implementation "com.google.firebase:firebase-crash:${firebase_library_version}"
-
+    implementation "com.google.firebase:firebase-database:${firebase_library_version}"
+    implementation "com.google.firebase:firebase-invites:${firebase_library_version}"
+    implementation "com.google.firebase:firebase-perf:${firebase_library_version}"
 
     implementation "android.arch.lifecycle:runtime:$android_arch_version"
     implementation "android.arch.lifecycle:extensions:$android_arch_version"
@@ -88,3 +96,5 @@ dependencies {
     })
 }
 
+
+apply plugin: 'com.google.gms.google-services'

@@ -9,7 +9,10 @@
     <string name="prompt_name">Name</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_mobile">Mobile</string>
+    <string name="prompt_message">Type your message</string>
     <string name="action_save">Save</string>
+    <string name="action_send">Send</string>
+    <string name="action_attach">Attach</string>
 
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_field_required">This field is required</string>

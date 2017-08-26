@@ -1,12 +1,12 @@
 package `in`.ceeq.lyte.databinding
 
 
-import `in`.ceeq.lyte.ContactViewActivity
+import `in`.ceeq.lyte.user.UserProfileActivity
 import android.view.View
 
 class ContactListItemViewModel : Contact() {
 
     fun onViewContactClick(view: View) {
-        ContactViewActivity.start(view.context, id)
+        UserProfileActivity.start(view.context, id)
     }
 }

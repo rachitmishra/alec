@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="messageViewModel"
+            type="in.ceeq.lyte.messages.MessageViewModel"/>
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_view_messages"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/textInputLayout1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            app:layout_constraintVertical_weight="1"
+            bind:items="@{messageViewModel.messageList}"
+            tools:listitem="@layout/list_item_message"
+            />
+
+        <ImageView
+            android:id="@+id/image_view_attach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/action_attach"
+            android:onClick="@{(view) -> messageViewModel.attachImage()}"
+            app:layout_constraintBottom_toBottomOf="@+id/textInputLayout1"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/textInputLayout1"
+            app:layout_constraintTop_toTopOf="@+id/textInputLayout1"
+            app:srcCompat="@drawable/ic_attach_file_black_24dp"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/textInputLayout1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/image_view_attach"
+            app:layout_constraintRight_toLeftOf="@+id/button_send"
+            app:layout_constraintTop_toBottomOf="@+id/recycler_view_messages"
+            app:layout_constraintVertical_chainStyle="spread_inside"
+            >
+
+            <EditText
+                android:id="@+id/editText1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/prompt_message"
+                android:imeActionLabel="@string/action_send"
+                android:imeOptions="actionUnspecified"
+                android:inputType="text|textAutoComplete|textAutoCorrect"
+                android:maxLines="1"
+                android:text="@={messageViewModel.messageText.text}"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <in.ceeq.lyte.utils.ui.ButtonPlus
+            android:id="@+id/button_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> messageViewModel.sendMessage()}"
+            android:text="@string/action_send"
+            app:layout_constraintBottom_toBottomOf="@+id/textInputLayout1"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintLeft_toRightOf="@+id/textInputLayout1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textInputLayout1"
+            tools:text="Send"
+            />
+
+    </android.support.constraint.ConstraintLayout>
+</layout>

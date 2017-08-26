@@ -1,6 +1,6 @@
 package `in`.ceeq.lyte.databinding
 
-import `in`.ceeq.lyte.ContactEditActivity
+import `in`.ceeq.lyte.user.UserEditActivity
 import `in`.ceeq.lyte.R
 import android.content.Context
 import android.content.Intent
@@ -36,7 +36,7 @@ class ContactViewModel : BaseContactViewModel {
     }
 
     fun onEditClick(context: Context) {
-        ContactEditActivity.start(context, id)
+        UserEditActivity.start(context, id)
     }
 }
 
