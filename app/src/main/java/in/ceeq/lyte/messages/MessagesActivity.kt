@@ -7,6 +7,7 @@ import `in`.ceeq.lyte.login.LoginActivity
 import `in`.ceeq.lyte.utils.SoftInputUtils
 import `in`.ceeq.lyte.utils.kotlin_ext.initVertical
 import android.arch.lifecycle.LifecycleActivity
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.content.Intent
@@ -20,14 +21,15 @@ class MessagesActivity : LifecycleActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        ViewModelProviders.of(this)
+        val viewModel = ViewModelProviders.of(this)
                 .get(MessageViewModel::class.java)
-                .isLoggedIn()
-                .observe(this, )
+
+        viewModel.isLoggedIn()
+                .observe(this, Observer { it?.let { if (it) LoginActivity start this } })
 
         val activityMessageBinding =
                 DataBindingUtil.setContentView<ActivityMessagesBinding>(this, R.layout.activity_messages)
-        activityMessageBinding.messageViewModel = mMessageViewModel
+        activityMessageBinding.messageViewModel = viewModel
 
         // init RecyclerView
         activityMessageBinding.recyclerViewMessages initVertical MessageAdapter()

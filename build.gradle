@@ -16,22 +16,28 @@ buildscript {
         fresco_version = '1.3.0'
         espresso_version = '2.2.2'
         stetho_version = '1.5.0'
+        firebase_ui_library_version = '2.3.0'
         constraint_layout_version = '1.0.2'
+        glide_version = '4.0.0'
+        fabric_version = '1.24.1'
+        crashlytics_version = '2.6.8'
     }
 
     repositories {
         jcenter()
         mavenCentral()
         google()
+        maven { url 'https://maven.fabric.io/public' }
     }
 
     dependencies {
         // Gradle plugin for Android tools support
-        classpath 'com.android.tools.build:gradle:3.0.0-beta2'
+        classpath "com.android.tools.build:gradle:$android_plugin_version"
         // Google services for FireBase, Google Play Services
-        classpath 'com.google.gms:google-services:3.1.0'
+        classpath "com.google.gms:google-services:$google_services_version"
         // Gradle plugin for Kotlin support
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_plugin_version"
+        classpath "io.fabric.tools:gradle:$fabric_version"
     }
 }
 
@@ -39,7 +45,8 @@ allprojects {
     repositories {
         jcenter()
         mavenCentral()
-        maven { url 'https://maven.google.com' }
+        google()
+        maven { url 'https://maven.fabric.io/public' }
     }
 }
 

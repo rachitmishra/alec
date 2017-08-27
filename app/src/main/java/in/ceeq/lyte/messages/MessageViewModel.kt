@@ -3,6 +3,8 @@ package `in`.ceeq.lyte.messages
 
 import `in`.ceeq.lyte.data.Message
 import `in`.ceeq.lyte.data.MessageText
+import `in`.ceeq.lyte.firebase.FirebaseAuthHelper
+import `in`.ceeq.lyte.firebase.FirebaseDatabaseHelper
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.databinding.ObservableArrayList

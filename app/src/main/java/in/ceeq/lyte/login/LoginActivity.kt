@@ -20,7 +20,7 @@ class LoginActivity : AppCompatActivity() {
 
     companion object {
 
-        fun start(context: Context) {
+        infix fun start(context: Context) {
             val starter = Intent(context, LoginActivity::class.java)
             context.startActivity(starter)
         }

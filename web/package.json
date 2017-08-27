@@ -1,0 +1,10 @@
+{
+  "name": "firebase",
+  "main": "app.js",
+  "dependencies": {},
+  "version": "1.0.0",
+  "scripts": {},
+  "author": "Rachit",
+  "license": "MIT",
+  "description": ""
+}
