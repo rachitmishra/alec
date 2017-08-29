@@ -1,17 +1,17 @@
 package `in`.ceeq.lyte.firebase
 
 import `in`.ceeq.lyte.data.Message
-import android.arch.lifecycle.LifecycleObserver
 import android.databinding.ObservableArrayList
-import com.google.firebase.database.*
+import com.google.firebase.database.ChildEventListener
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
 
-class FirebaseDatabaseHelper<T> : LifecycleObserver {
+class FirebaseDatabaseHelper<T> {
 
-    private val mFirebaseDatabase:
-            FirebaseDatabase by lazy { FirebaseDatabase.getInstance() }
+    private val mFirebaseDatabase by lazy { FirebaseDatabase.getInstance() }
 
-    private val mDatabaseReference:
-            DatabaseReference by lazy { mFirebaseDatabase.reference.child(mNode) }
+    private val mDatabaseReference by lazy { mFirebaseDatabase.reference.child(mNode) }
 
     private lateinit var mDataSet: ObservableArrayList<T>
 
@@ -19,7 +19,7 @@ class FirebaseDatabaseHelper<T> : LifecycleObserver {
 
     private lateinit var mClazz: Class<T>
 
-    private val mChildEventListener = object : ChildEventListener {
+    private val mChildEventListener: ChildEventListener = object : ChildEventListener {
         override fun onCancelled(p0: DatabaseError?) {
         }
 

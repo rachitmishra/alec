@@ -4,13 +4,11 @@ import `in`.ceeq.lyte.data.room.LyteDatabase
 import `in`.ceeq.lyte.utils.AnalyticsUtils
 import android.app.Application
 import android.arch.persistence.room.Room
+import com.crashlytics.android.Crashlytics
+import com.crashlytics.android.core.CrashlyticsCore
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.google.firebase.FirebaseApp
-import sun.security.krb5.internal.KDCOptions.with
-
-
-
-
+import io.fabric.sdk.android.Fabric
 
 
 class LyteApplication : Application() {
@@ -22,6 +20,10 @@ class LyteApplication : Application() {
         AnalyticsUtils().init(this)
         Fresco.initialize(this)
         FirebaseApp.initializeApp(this)
-        Fabric.with(this, Crashlytics())
+
+        val crashlyticsKit = Crashlytics.Builder()
+                .core(CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
+                .build()
+        Fabric.with(this, crashlyticsKit)
     }
 }
